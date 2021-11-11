@@ -17,19 +17,24 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
+// {
+
 type Product struct {
-	Id        string   `json:"_id" bson:"_id"`
-	Address   string   `json:"address" bson:"address"`
-	CreatedBy string   `json:"createdBy" bson:"createdBy"`
-	Email     string   `json:"email" bson:"email"`
-	Gender    string   `json:"gender" bson:"gender"`
-	Imgs      []string `json:"imgs" bson:"imgs"`
-	Item      string   `json:"item" bson:"item"`
-	Name      string   `json:"name" bson:"name"`
-	Phone     string   `json:"phone" bson:"phone"`
-	Price     int      `json:"price" bson:"price"`
-	Status    string   `json:"status" bson:"status"`
-	Tags      []string `json:"tags" bson:"tags"`
+	Id         string   `json:"_id" bson:"_id"`
+	Address    string   `json:"address" bson:"address"`
+	CreatedBy  string   `json:"createdBy" bson:"createdBy"`
+	Email      string   `json:"email" bson:"email"`
+	Gender     string   `json:"gender" bson:"gender"`
+	Imgs       []string `json:"imgs" bson:"imgs"`
+	Item       string   `json:"item" bson:"item"`
+	Name       string   `json:"name" bson:"name"`
+	Phone      string   `json:"phone" bson:"phone"`
+	Price      int      `json:"price" bson:"price"`
+	Status     string   `json:"status" bson:"status"`
+	Tags       []string `json:"tags" bson:"tags"`
+	Facebook   string   `json:"facebook" bson:"facebook"`
+	Instagram  string   `json:"instagram" bson:"instagram"`
+	ClotheSize string   `json:"clotheSize" bson:"clotheSize"`
 }
 
 func main() {
