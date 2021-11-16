@@ -42,6 +42,13 @@ func main() {
 	pw := os.Getenv("PP")
 	str := fmt.Sprintf("mongodb+srv://mpoapostolis:%s@cluster0.mrxks.mongodb.net", pw)
 
+	// Define file to logs
+	file, err := os.OpenFile("./my_logs.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+	if err != nil {
+		log.Fatalf("error opening file: %v", err)
+	}
+	defer file.Close()
+
 	var ctx = context.TODO()
 	clientOptions := options.Client().ApplyURI(str)
 	client, err := mongo.Connect(ctx, clientOptions)
@@ -50,6 +57,7 @@ func main() {
 	}
 	app := fiber.New(
 		fiber.Config{
+
 			Prefork:       true,
 			CaseSensitive: true,
 			BodyLimit:     20 * 1024 * 1024,
@@ -57,7 +65,13 @@ func main() {
 			ServerHeader:  "Fiber",
 			AppName:       "Thrift",
 		})
-	app.Use(logger.New())
+
+	// Set config for logger
+	loggerConfig := logger.Config{
+		Output: file, // add file to save output
+	}
+
+	app.Use(logger.New(loggerConfig))
 	app.Use(cors.New())
 
 	app.Get("/0d517520c1f6878/:id", func(c *fiber.Ctx) error {
