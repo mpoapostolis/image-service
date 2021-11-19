@@ -35,6 +35,7 @@ type Product struct {
 	Facebook   string   `json:"facebook" bson:"facebook"`
 	Instagram  string   `json:"instagram" bson:"instagram"`
 	ClotheSize string   `json:"clotheSize" bson:"clotheSize"`
+	ShoeSize   int16    `json:"shoeSize" bson:"shoeSize"`
 }
 
 func main() {
