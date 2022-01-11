@@ -29,7 +29,7 @@ type Product struct {
 	Item       string   `json:"item" bson:"item"`
 	Name       string   `json:"name" bson:"name"`
 	Phone      string   `json:"phone" bson:"phone"`
-	Price      int      `json:"price" bson:"price"`
+	Price      float32  `json:"price" bson:"price,truncate"`
 	Status     string   `json:"status" bson:"status"`
 	Tags       []string `json:"tags" bson:"tags"`
 	Facebook   string   `json:"facebook" bson:"facebook"`
